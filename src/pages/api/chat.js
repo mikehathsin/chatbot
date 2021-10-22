@@ -70,8 +70,6 @@ const handleMessage = ({ entities }) => {
   pusher.trigger("bot", "bot-response", {
     message: "No entiendo 😔",
   });
-
-  res.status(200).json({ name: "John Doe" });
 };
 
 const handler = (req, res) => {
@@ -84,6 +82,8 @@ const handler = (req, res) => {
       res.status(200).json(data);
     })
     .catch((error) => console.log(error));
+
+  res.status(200).json({ name: "John Doe" });
 };
 
 export default handler;
