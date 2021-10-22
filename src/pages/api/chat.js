@@ -45,7 +45,7 @@ const handleMessage = ({ entities }) => {
   const isPrice = Object.keys(entities).includes("precio:precio");
 
   if (greetings) {
-    return pusher.trigger("bot", "bot-response", {
+    pusher.trigger("bot", "bot-response", {
       message:
         responses.greetings[
           Math.floor(Math.random() * responses.greetings.length)
@@ -55,21 +55,23 @@ const handleMessage = ({ entities }) => {
 
   if (isManga && isAvailable) {
     db.push("/manga", entities["manga:manga"][0].value);
-    return pusher.trigger("bot", "bot-response", {
+    pusher.trigger("bot", "bot-response", {
       message: `Si tenemos disponible ${entities["manga:manga"][0].value}`,
     });
   }
 
   if (isPrice) {
     const { manga } = db.getData("/");
-    return pusher.trigger("bot", "bot-response", {
+    pusher.trigger("bot", "bot-response", {
       message: `El precio de ${manga} es de 15 USD`,
     });
   }
 
-  return pusher.trigger("bot", "bot-response", {
+  pusher.trigger("bot", "bot-response", {
     message: "No entiendo 😔",
   });
+
+  res.status(200).json({ name: "John Doe" });
 };
 
 const handler = (req, res) => {
