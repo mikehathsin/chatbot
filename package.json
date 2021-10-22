@@ -1,0 +1,22 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mikehathsin/chatbot.git",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^11.1.2",
+    "node-json-db": "^1.4.1",
+    "node-wit": "^6.0.1",
+    "pusher": "^5.0.0",
+    "pusher-js": "^7.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
